@@ -4,16 +4,15 @@ client = payu_sdk.payUClient({"key":"FZn5Bu","salt":"uSESXnsRktc1QJUFsUaVCYsPnnC
 params = {"txnid":"LImp8l8tmToJ6x","amount":"10","productinfo":"redme","firstname":"pankaj","email":"pankaj.jkishore@gmail.com"}
 apiHash = payu_sdk.Hasher.APIHash(params)
 url = "https://secure.payu.in/_payment"
-print(apiHash)
+print("hiii vicky ",apiHash)
 
-payload = "key=FZn5Bu&txnid=LImp8l8tmToJ6x&amount=10.00&firstname=pankaj&email=pankaj.jkishore@gmail.com&phone=9785012088&productInfo=redme\
-&surl=https://apiplayground-response.herokuapp.com/&furl=https://apiplayground-response.herokuapp.com/&hash={}".format(apiHash)
-headers = { "Accept": "application/json", "Content-Type": "application/x-www-form-urlencoded" }
+payload = "key=FZn5Bu&txnid=LImp8l8tmToJ6x&amount=10.00&firstname=pankaj&email=pankajjkishore@gmail.com&phone=9785012088&productInfo=redme&surl=https://apiplayground-response.herokuapp.com/&furl=https://apiplayground-response.herokuapp.com/&hash={}".format(apiHash)
+headers = {"Accept": "application/json", "Content-Type": "application/x-www-form-urlencoded"}
 
-
+print("vvvv",payload)
 response = requests.request("POST", url, data=payload, headers=headers)
 
-
+print(response)
 f = open("new.html",'w')
 f.write(response.text)
 f.close()
